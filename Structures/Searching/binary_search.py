@@ -20,4 +20,21 @@ def binarySearch(nums: list[int], target: int) -> int:
     return -1
 
 
+def binarySearchRecursive(nums: list[int], target: int, start: int, end: int) -> int:
+    if start > end:
+        return -1
+
+    mid = start + (end - start) // 2
+
+    if nums[mid] == target:
+        return mid
+
+    elif nums[mid] < target:
+        return binarySearchRecursive(nums, target, mid+1, end)
+    
+    else:
+        return binarySearchRecursive(nums, target, start, mid - 1)
+
+
 print(binarySearch(nums, target))
+print(binarySearchRecursive(nums, target, 0, len(nums)-1))
