@@ -68,6 +68,40 @@ class LinkedList:
 
         return slow
 
+
+    def kth_node_from_end(self, k):
+        slow = self.head
+        fast = self.head
+
+        for i in range(k):
+            if fast is None: 
+                return None
+            fast = fast.next
+
+        while fast:
+            slow = slow.next
+            fast = fast.next
+
+        return slow
+
+
+    def remove_nth_node_from_end(self, n):
+        slow = self.head
+        fast = self.head
+
+        for i in range(n+1):
+            fast = fast.next
+
+        if fast is None:
+            self.head = self.head.next 
+
+        while fast:
+            fast = fast.next
+            slow = slow.next
+
+        slow.next = slow.next.next
+
+
     
     def display(self):
         temp = self.head
