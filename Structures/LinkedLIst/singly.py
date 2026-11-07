@@ -58,6 +58,7 @@ class SinglyLinkedList:
             index += 1
 
         return -1
+    
 
     def display_list(self):
         temp = self.head
@@ -78,6 +79,7 @@ class SinglyLinkedList:
             temp = temp.next
 
         self.head = dummy.next
+        
 
 arr = [1,24,2,34,1]
 
