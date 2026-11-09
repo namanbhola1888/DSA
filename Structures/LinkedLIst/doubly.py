@@ -75,3 +75,37 @@ class DoublyLinkedList:
         return -1
 
 
+    def insert_at_k(self, position, data):
+        new_node = Node(data)
+
+        if position == 0:
+            new_node.next = self.head
+
+            if self.head:
+                self.head.prev = new_node
+
+            self.head = new_node
+
+            return
+
+        temp = self.head
+
+        for i in range(position-1):
+            if temp is None:
+                return
+            
+            temp = temp.next
+
+        if temp is None:
+            return
+
+        new_node.next = temp.next   
+        new_node.prev = temp
+
+        if temp.next:
+            new_node.next.prev = new_node
+
+        temp.next = new_node
+
+
+    

@@ -7,10 +7,12 @@ class SinglyLinkedList:
     def __init__(self):
         self.head = None
 
+
     def insert_at_begining(self, data):
         new_node = Node(data)
         new_node.next = self.head
         self.head = new_node
+        
 
     def insert_at_end(self, data):
         new_node = Node(data)
@@ -25,6 +27,7 @@ class SinglyLinkedList:
             temp = temp.next
 
         temp.next = new_node
+
 
     def delete_node(self, key):
         if self.head is None:
@@ -79,7 +82,7 @@ class SinglyLinkedList:
             temp = temp.next
 
         self.head = dummy.next
-        
+
 
 arr = [1,24,2,34,1]
 
