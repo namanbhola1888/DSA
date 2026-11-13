@@ -1,10 +1,18 @@
 class Stack:
     def __init__(self):
         self.stack = []
+        self.minStack = []
 
 
     def push(self, data):
         self.stack.append(data)
+
+        if not self.minStack:
+            self.minStack.append(data)
+        else:
+            self.minStack.append(
+                min(data, self.minStack[-1])
+            )
 
 
     def pop(self):
@@ -15,10 +23,9 @@ class Stack:
 
 
     def peek(self):
-        if self.isEmpty():
-            return "Empty"
-
-        return self.stack[-1]
+        if self.stack:
+            self.stack.pop()
+            self.minStack.pop()
 
 
     def isEmpty(self):
@@ -27,6 +34,20 @@ class Stack:
 
     def size(self):
         return len(self.stack)
+
+
+    def getTop(self):
+        if not self.stack:
+            return -1
+
+        return self.stack[-1]
+
+
+    def getMin(self):
+        if not self.minStack:
+            return -1
+        
+        return self.minStack[-1]
 
 
 
