@@ -11,7 +11,7 @@ class CircularQueue:
             return "Full"
 
         if self.isEmpty():
-            front = 0
+            self.front = 0
 
         self.rear = (self.rear+1) % self.capacity
 
